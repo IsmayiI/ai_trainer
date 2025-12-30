@@ -1,4 +1,12 @@
 import 'package:ai_trainer/core/models/training_plan.model.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
+
+part 'ai_generator.service.g.dart';
+
+@riverpod
+AiGeneratorService aiGeneratorService(Ref ref) {
+  return AiGeneratorService();
+}
 
 class AiGeneratorService {
   Future<TrainingPlan> generateMockData() async {
