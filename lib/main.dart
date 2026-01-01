@@ -21,7 +21,6 @@ class MainApp extends StatelessWidget {
         '/': (context) => EnterTodayExersiceScreen(),
         '/plan': (context) => const AiTrainingPlanViewerScreen(),
       },
-      initialRoute: '/',
     );
   }
 }

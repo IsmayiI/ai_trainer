@@ -4,7 +4,7 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'ai_trainer.controller.g.dart';
 
-@riverpod
+@Riverpod(keepAlive: true)
 class AiTrainerController extends _$AiTrainerController {
   AiGeneratorService get _aiService => ref.read(aiGeneratorServiceProvider);
   @override
