@@ -1,8 +1,10 @@
+import 'package:ai_trainer/ui/screens/ai_training_plan_viewer.screen.dart';
 import 'package:ai_trainer/ui/screens/enter_today_exersice.screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 void main() {
-  runApp(const MainApp());
+  runApp(ProviderScope(child: const MainApp()));
 }
 
 class MainApp extends StatelessWidget {
@@ -13,9 +15,13 @@ class MainApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.orange),
       ),
-      home: EnterTodayExersiceScreen(),
+      routes: {
+        '/': (context) => EnterTodayExersiceScreen(),
+        '/plan': (context) => const AiTrainingPlanViewerScreen(),
+      },
+      initialRoute: '/',
     );
   }
 }

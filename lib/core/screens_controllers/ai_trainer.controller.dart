@@ -12,8 +12,18 @@ class AiTrainerController extends _$AiTrainerController {
     return null;
   }
 
-  Future<void> generate() async {
+  Future<void> generate(String text) async {
     state = const AsyncLoading();
     state = await AsyncValue.guard(() => _aiService.generateMockData());
+  }
+
+  String? validator(String? value) {
+    if (value == null || value.isEmpty) {
+      return 'Please enter a workout.';
+    }
+    if (value.length <= 4) {
+      return 'Minimum 5 characters required.';
+    }
+    return null;
   }
 }
