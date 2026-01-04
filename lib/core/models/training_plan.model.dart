@@ -17,6 +17,6 @@ sealed class PlanItem with _$PlanItem {
     required String exercise,
     required num sets,
     required List<num> reps,
-    required List<num> weight,
+    required List<num> weights,
   }) = _PlanItem;
 }

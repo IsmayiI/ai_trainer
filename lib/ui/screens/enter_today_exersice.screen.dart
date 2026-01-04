@@ -4,7 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class EnterTodayExersiceScreen extends ConsumerWidget {
   final formKey = GlobalKey<FormState>();
-  final formController = TextEditingController();
+  final formController = TextEditingController(text: 'dddddd');
   EnterTodayExersiceScreen({super.key});
 
   @override
@@ -31,7 +31,6 @@ class EnterTodayExersiceScreen extends ConsumerWidget {
                 validator: ref
                     .read(aiTrainerControllerProvider.notifier)
                     .validator,
-                autofocus: true,
                 decoration: InputDecoration(
                   hintText: 'abs workout, full body workout, etc.',
                 ),

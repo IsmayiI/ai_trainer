@@ -19,7 +19,7 @@ class MainApp extends StatelessWidget {
       ),
       routes: {
         '/': (context) => EnterTodayExersiceScreen(),
-        '/plan': (context) => const AiTrainingPlanViewerScreen(),
+        '/plan': (context) => AiTrainingPlanViewerScreen(),
       },
     );
   }

@@ -18,13 +18,13 @@ class AiGeneratorService {
           exercise: 'Push-ups',
           sets: 3,
           reps: [10, 12, 15],
-          weight: [0, 0, 0],
+          weights: [0, 0, 0],
         ),
         PlanItem(
           exercise: 'Squats',
           sets: 4,
           reps: [10, 12, 15, 20],
-          weight: [0, 0, 0, 0],
+          weights: [0, 0, 0, 0],
         ),
       ],
     );

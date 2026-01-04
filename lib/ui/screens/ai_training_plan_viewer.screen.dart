@@ -5,7 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class AiTrainingPlanViewerScreen extends ConsumerWidget {
-  const AiTrainingPlanViewerScreen({super.key});
+  final _pageController = PageController(viewportFraction: 0.85);
+  AiTrainingPlanViewerScreen({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -30,18 +31,55 @@ class AiTrainingPlanViewerScreen extends ConsumerWidget {
           return Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              ListTile(
+                leading: Icon(Icons.fitness_center),
+                title: Text(
+                  "${plan.title} (${plan.plans.length} exercises)",
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
+                subtitle: Text(
+                  formatDate(plan.startDate),
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
+              ),
               Expanded(
+                flex: 2,
                 child: PageView.builder(
+                  controller: _pageController,
                   itemCount: plan.plans.length,
                   itemBuilder: (context, index) {
-                    return TrainingPlanBlock();
+                    return TrainingPlanBlock(
+                      index: index,
+                      plan: plan.plans[index],
+                    );
                   },
                 ),
               ),
+              TextButton(
+                child: Chip(
+                  label: Text(
+                    "NEXT",
+                    style: theme.textTheme.titleLarge?.copyWith(
+                      color: theme.primaryColor,
+                    ),
+                  ), // Text
+                ), // Chip
+                onPressed: () {
+                  _pageController.nextPage(
+                    duration: const Duration(milliseconds: 250),
+                    curve: Curves.linear,
+                  );
+                },
+              ), // TextButton
+              Spacer(),
             ],
           );
         },
       ),
     );
+  }
+
+  String formatDate(DateTime date) {
+    return '${date.year}/${date.month}/${date.day}';
   }
 }
