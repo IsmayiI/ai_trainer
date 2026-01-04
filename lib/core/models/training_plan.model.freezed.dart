@@ -11,6 +11,7 @@ part of 'training_plan.model.dart';
 
 // dart format off
 T _$identity<T>(T value) => value;
+
 /// @nodoc
 mixin _$TrainingPlan {
 
@@ -21,6 +22,8 @@ mixin _$TrainingPlan {
 @pragma('vm:prefer-inline')
 $TrainingPlanCopyWith<TrainingPlan> get copyWith => _$TrainingPlanCopyWithImpl<TrainingPlan>(this as TrainingPlan, _$identity);
 
+  /// Serializes this TrainingPlan to a JSON map.
+  Map<String, dynamic> toJson();
 
 
 @override
@@ -28,7 +31,7 @@ bool operator ==(Object other) {
   return identical(this, other) || (other.runtimeType == runtimeType&&other is TrainingPlan&&(identical(other.title, title) || other.title == title)&&(identical(other.startDate, startDate) || other.startDate == startDate)&&const DeepCollectionEquality().equals(other.plans, plans));
 }
 
-
+@JsonKey(includeFromJson: false, includeToJson: false)
 @override
 int get hashCode => Object.hash(runtimeType,title,startDate,const DeepCollectionEquality().hash(plans));
 
@@ -200,10 +203,10 @@ return $default(_that.title,_that.startDate,_that.plans);case _:
 
 /// @nodoc
 
-
+@JsonSerializable(explicitToJson: true)
 class _TrainingPlan implements TrainingPlan {
   const _TrainingPlan({required this.title, required this.startDate, required final  List<PlanItem> plans}): _plans = plans;
-  
+  factory _TrainingPlan.fromJson(Map<String, dynamic> json) => _$TrainingPlanFromJson(json);
 
 @override final  String title;
 @override final  DateTime startDate;
@@ -221,14 +224,17 @@ class _TrainingPlan implements TrainingPlan {
 @pragma('vm:prefer-inline')
 _$TrainingPlanCopyWith<_TrainingPlan> get copyWith => __$TrainingPlanCopyWithImpl<_TrainingPlan>(this, _$identity);
 
-
+@override
+Map<String, dynamic> toJson() {
+  return _$TrainingPlanToJson(this, );
+}
 
 @override
 bool operator ==(Object other) {
   return identical(this, other) || (other.runtimeType == runtimeType&&other is _TrainingPlan&&(identical(other.title, title) || other.title == title)&&(identical(other.startDate, startDate) || other.startDate == startDate)&&const DeepCollectionEquality().equals(other._plans, _plans));
 }
 
-
+@JsonKey(includeFromJson: false, includeToJson: false)
 @override
 int get hashCode => Object.hash(runtimeType,title,startDate,const DeepCollectionEquality().hash(_plans));
 
@@ -274,6 +280,7 @@ as List<PlanItem>,
 
 }
 
+
 /// @nodoc
 mixin _$PlanItem {
 
@@ -284,6 +291,8 @@ mixin _$PlanItem {
 @pragma('vm:prefer-inline')
 $PlanItemCopyWith<PlanItem> get copyWith => _$PlanItemCopyWithImpl<PlanItem>(this as PlanItem, _$identity);
 
+  /// Serializes this PlanItem to a JSON map.
+  Map<String, dynamic> toJson();
 
 
 @override
@@ -291,7 +300,7 @@ bool operator ==(Object other) {
   return identical(this, other) || (other.runtimeType == runtimeType&&other is PlanItem&&(identical(other.exercise, exercise) || other.exercise == exercise)&&(identical(other.sets, sets) || other.sets == sets)&&const DeepCollectionEquality().equals(other.reps, reps)&&const DeepCollectionEquality().equals(other.weights, weights));
 }
 
-
+@JsonKey(includeFromJson: false, includeToJson: false)
 @override
 int get hashCode => Object.hash(runtimeType,exercise,sets,const DeepCollectionEquality().hash(reps),const DeepCollectionEquality().hash(weights));
 
@@ -463,11 +472,11 @@ return $default(_that.exercise,_that.sets,_that.reps,_that.weights);case _:
 }
 
 /// @nodoc
-
+@JsonSerializable()
 
 class _PlanItem implements PlanItem {
   const _PlanItem({required this.exercise, required this.sets, required final  List<num> reps, required final  List<num> weights}): _reps = reps,_weights = weights;
-  
+  factory _PlanItem.fromJson(Map<String, dynamic> json) => _$PlanItemFromJson(json);
 
 @override final  String exercise;
 @override final  num sets;
@@ -492,14 +501,17 @@ class _PlanItem implements PlanItem {
 @pragma('vm:prefer-inline')
 _$PlanItemCopyWith<_PlanItem> get copyWith => __$PlanItemCopyWithImpl<_PlanItem>(this, _$identity);
 
-
+@override
+Map<String, dynamic> toJson() {
+  return _$PlanItemToJson(this, );
+}
 
 @override
 bool operator ==(Object other) {
   return identical(this, other) || (other.runtimeType == runtimeType&&other is _PlanItem&&(identical(other.exercise, exercise) || other.exercise == exercise)&&(identical(other.sets, sets) || other.sets == sets)&&const DeepCollectionEquality().equals(other._reps, _reps)&&const DeepCollectionEquality().equals(other._weights, _weights));
 }
 
-
+@JsonKey(includeFromJson: false, includeToJson: false)
 @override
 int get hashCode => Object.hash(runtimeType,exercise,sets,const DeepCollectionEquality().hash(_reps),const DeepCollectionEquality().hash(_weights));
 

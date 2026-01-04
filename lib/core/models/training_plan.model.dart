@@ -1,14 +1,19 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'training_plan.model.freezed.dart';
+part 'training_plan.model.g.dart';
 
 @freezed
 sealed class TrainingPlan with _$TrainingPlan {
+  @JsonSerializable(explicitToJson: true)
   const factory TrainingPlan({
     required String title,
     required DateTime startDate,
     required List<PlanItem> plans,
   }) = _TrainingPlan;
+
+  factory TrainingPlan.fromJson(Map<String, Object?> json) =>
+      _$TrainingPlanFromJson(json);
 }
 
 @freezed
@@ -19,4 +24,7 @@ sealed class PlanItem with _$PlanItem {
     required List<num> reps,
     required List<num> weights,
   }) = _PlanItem;
+
+  factory PlanItem.fromJson(Map<String, Object?> json) =>
+      _$PlanItemFromJson(json);
 }
