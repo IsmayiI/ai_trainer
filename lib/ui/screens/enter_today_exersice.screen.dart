@@ -4,7 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class EnterTodayExersiceScreen extends ConsumerWidget {
   final formKey = GlobalKey<FormState>();
-  final formController = TextEditingController(text: 'dddddd');
+  final formController = TextEditingController(text: 'full body workout');
   EnterTodayExersiceScreen({super.key});
 
   @override

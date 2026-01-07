@@ -34,7 +34,7 @@ final class AiTrainerControllerProvider
 }
 
 String _$aiTrainerControllerHash() =>
-    r'4a178149962ccde95cddf226fba5547733f41d62';
+    r'9ff9515aac821eab8985e20e9d61b3dce6e059f9';
 
 abstract class _$AiTrainerController extends $AsyncNotifier<TrainingPlan?> {
   FutureOr<TrainingPlan?> build();

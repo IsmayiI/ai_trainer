@@ -14,7 +14,7 @@ class AiTrainerController extends _$AiTrainerController {
 
   Future<void> generate(String text) async {
     state = const AsyncLoading();
-    state = await AsyncValue.guard(() => _aiService.generateMockData());
+    state = await AsyncValue.guard(() => _aiService.generateWithGemini(text));
   }
 
   String? validator(String? value) {
